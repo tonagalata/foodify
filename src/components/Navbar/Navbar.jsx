@@ -3,7 +3,7 @@ import styles from './Navbar.module.css'
 
 const Narbar = props => {
   return(
-    <nav>
+    <nav className={styles.navbar}>
       <h1>Foodify</h1>
       <ul>
         <li>Resturants</li>
