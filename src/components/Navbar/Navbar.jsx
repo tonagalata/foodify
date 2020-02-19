@@ -13,10 +13,10 @@ const Narbar = props => {
           <Link to='/restaurants'>Restaurants</Link>
         </li>
         <li>
-          <Link>Login</Link>
+          <Link to='/login'>Login</Link>
         </li>
         <li>
-          <Link>Signup</Link>
+          <Link to='/signup'>Signup</Link>
         </li>
       </ul>
     </nav>
