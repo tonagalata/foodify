@@ -4,9 +4,9 @@ import styles from './Footer.module.css'
 const Footer = props => {
   return (
     <footer className={styles.footer}>
-      <div>
-      Foodify &copy; 2020
-      </div>
+      <p>
+       Copyright &copy; Foodify {new Date().getFullYear()}
+      </p>
     </footer>
   )
 }
