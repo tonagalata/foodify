@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const servefavicon = require('serve-favicon')
 const logger = require('morgan')
+const bcrypt = require('bcrypt')
 
 const app = express();
 
