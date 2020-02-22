@@ -33,14 +33,19 @@ class App extends Component{
               exact 
               path="/login"
               render={props => 
-                <Login />
+                <Login 
+                {...props}
+                />
               }
             />
             <Route
               exact 
               path="/signup"
-              render={props => 
-                <Signup />
+              render={props =>
+                 
+                <Signup 
+                {...props}
+                />
               }
             />
           </Switch>
