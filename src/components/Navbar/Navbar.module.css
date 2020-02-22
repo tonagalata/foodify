@@ -1,0 +1,38 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  background-color: #dad;
+  justify-content: space-between;
+  box-shadow: 2px 2px 7px 2px lightgray;
+}
+
+.navbar h1 a {
+  margin: 1rem;
+  font-family: Pacifico, cursive;
+  font-size: 2rem;
+  font-weight: lighter;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.navbar ul li {
+  margin: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar ul li:hover {
+  border-bottom: 1px solid gray;
+}
