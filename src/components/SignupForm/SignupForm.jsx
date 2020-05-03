@@ -11,7 +11,8 @@ class SignupForm extends Component {
       name: '',
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      error: ''
     }
   } 
 
@@ -26,7 +27,8 @@ class SignupForm extends Component {
 
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      error: '',
+      ...{[e.target.name]: e.target.value}
     })
   }
 
@@ -37,16 +39,28 @@ class SignupForm extends Component {
       const { name, email, password } = this.state
       await userService.signup({ name, email, password });
       this.setState(this.getInitialState(), () => {
-        console.log('user signed up!')
+        this.props.handleSignupOrLogin();
+        this.props.history.push('/');
       });
     } catch (err) {
-      
+      this.setState({
+        name: '',
+        email: '',
+        password: '',
+        passwordConfirmation: '',
+        error: err.message,
+      })
     }
   }
 
 
   render() {
     return (
+      <section className={styles.section}>
+        {
+          this.state.error && <p>{this.state.error}</p>
+        }
+
         <form onSubmit={this.handleSubmit} className={styles.form}>
           <fieldset>
             <legend>Signup Form</legend>
@@ -99,6 +113,7 @@ class SignupForm extends Component {
             >Submit</button>
           </fieldset>
         </form>
+      </section>
     )
   }
 }

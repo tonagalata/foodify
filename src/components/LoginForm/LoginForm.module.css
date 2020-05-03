@@ -1,11 +1,11 @@
-.form fieldset{
+.section fieldset{
   display: flex;
   flex-direction: column;
   width: 15rem;
   margin: 0 auto;
 }
 
-.form input {
+.section input {
   width: 100%;
   margin: .5rem 0 .5rem 0;
   height: 1.7rem;
@@ -13,7 +13,7 @@
   background-color: aliceblue;
 }
 
-.form button {
+.section button {
   width: 100%;
   height: 2.5rem;
   background-color: #6495ed;
@@ -22,4 +22,15 @@
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+.section button:disabled {
+  background-color: grey;
+}
+
+.section p {
+  display: flex;
+  color: #f00;
+  font-weight: 500;
+  justify-content: center;
 }

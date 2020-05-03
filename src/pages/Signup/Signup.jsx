@@ -8,7 +8,10 @@ const Signup = (props) => {
       <h1>
         Signup
       </h1>
-      <SignupForm />
+      <SignupForm 
+      {...props}
+      handleSignupOrLogin={props.handleSignupOrLogin}
+      />
     </main>
    );
 }

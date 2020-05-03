@@ -1,3 +1,26 @@
 main {
   font-family: Georgia, 'Times New Roman', Times, serif, cursive;
 }
+
+.restaurantContainer {
+  height: 10rem;
+  width: 10rem;
+  background-color: rgb(100, 149, 237, .8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.restaurantContainer h2 {
+  font-size: small;
+  margin: .5rem;
+  display: inline;
+  width: 100%;
+}
+
+.restaurantContainer h2:nth-child(3) {
+  text-transform: capitalize;
+}

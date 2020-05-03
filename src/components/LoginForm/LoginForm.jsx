@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './LoginForm.module.css'
+import userService from '../../service/userService'
 
 class LoginForm extends Component {
 
@@ -8,25 +9,53 @@ class LoginForm extends Component {
   getInitialState() {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   } 
 
+  isFormValid = () => {
+    return (
+      this.state.email &&
+      this.state.password
+    )
+  }
+
   handleChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      error: '',
+      ...{[e.target.name]: e.target.value}
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    // Service module
-    this.setState(this.getInitialState())
-  }
+    if(!this.isFormValid()) return;
+    try {
+      const { email, password } = this.state;
+      await userService.login({ email, password })
+      this.setState(this.getInitialState(), () => {
+        // add the token to state
+        this.props.handleSignupOrLogin()
+        this.props.history.push('/hairprofessionals')
 
+      })
+    } catch (error) {
+      // set error message to the error property on state
+      this.setState({
+        email: '',
+        password: '',
+        error: error.message
+      })
+    }
+  }
 
   render() {
     return (
+      <section className={styles.section}>
+        {
+          this.state.error && <p>{this.state.error}</p>
+        }
         <form onSubmit={this.handleSubmit} className={styles.form}>
           <fieldset>
             <legend>Login Form</legend>
@@ -54,9 +83,11 @@ class LoginForm extends Component {
             />
             <button 
             type='submit'
+            disabled={ !this.isFormValid() }
             >Login</button>
           </fieldset>
         </form>
+      </section>
     )
   }
 }
